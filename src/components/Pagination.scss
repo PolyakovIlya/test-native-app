@@ -1,0 +1,76 @@
+@import "../styles/variables";
+
+.pagination {
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+
+  .btn {
+    display: block;
+    min-width: 25px;
+    height: 30px;
+    line-height: 23px;
+    padding: 0.1rem 0.3rem;
+    margin: 0 0.2rem;
+    background: transparent;
+    border: 1px solid $background-primary;
+    color: $color-secondary;
+    font-size: 13px;
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .btn[disabled] {
+    background: #e8e8e8;
+    border-color: #909497;
+    pointer-events: none;
+  }
+
+  .active {
+    background: $background-primary;
+    color: $color-primary;
+    pointer-events: none;
+  }
+
+  .list {
+    display: flex;
+
+    li {
+
+    }
+  }
+
+  .postfix {
+    display: flex;
+
+    .trunc {
+      margin: 0 0.3rem;
+    }
+  }
+
+  .next-btn {
+    &:before {
+      content: '\203A ';
+    }
+  }
+
+  .prev-btn {
+    &:before {
+      content: '\2039 ';
+    }
+  }
+
+  .selected {
+    border: 1px solid #000;
+  }
+}

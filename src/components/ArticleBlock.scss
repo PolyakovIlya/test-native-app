@@ -1,0 +1,53 @@
+@import "../styles/variables";
+
+.article {
+  width: 600px;
+  align-items: center;
+  position: relative;
+  background: $color-primary;
+  border: 1px solid #ededed;
+  padding: 2rem;
+  margin: 0.75rem 0;
+
+  .title {
+    color: $color-secondary;
+    font-size: 20px;
+    margin-bottom: 1rem;
+
+    .link {
+      color: $color-secondary;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .date {
+    font-size: 14px;
+    color: #bcbbc3;
+  }
+
+  .content {
+    margin: 1rem 0 0 0;
+    color: #000;
+    text-align: left;
+  }
+
+  .deleteCross {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+
+    &:after {
+      content: "\274c";
+      font-size: 14px;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

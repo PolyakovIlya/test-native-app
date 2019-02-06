@@ -1,0 +1,19 @@
+@import "../../styles/variables";
+@import "../../styles/form";
+
+.articleForm {
+  width: 600px;
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  form {
+    display: flex;
+
+    .addButton {
+      margin-left: 1rem;
+      border: none;
+    }
+  }
+}

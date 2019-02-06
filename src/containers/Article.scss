@@ -1,0 +1,21 @@
+@import "../styles/variables";
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .articleHeader {
+    margin-bottom: 1rem;
+  }
+
+  .paragraphBlock {
+    .subHeader {
+      color: $color-secondary;
+      text-align: left;
+      margin: 1rem 0 0 0;
+    }
+  }
+
+
+}

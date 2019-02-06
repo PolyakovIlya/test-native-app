@@ -1,0 +1,76 @@
+@import "../styles/variables";
+@import "../styles/form";
+
+header {
+  width: 100%;
+
+  .navbar {
+    display: flex;
+    background: #fff;
+    height: 60px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .start {
+      display: flex;
+      align-items: center;
+
+      .logo {
+        margin: 0 2rem;
+        color: $color-secondary;
+        font-size: 20px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .links {
+
+        .link {
+          text-decoration: none;
+          margin-left: 1.5rem;
+          color: $background-primary;
+          transition: all 0.3s;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .end {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .logout {
+        display: block;
+        width: 100px;
+        height: 35px;
+        line-height: 30px;
+        padding: 0.2rem;
+        margin: 0 2rem;
+        background: $color-primary;
+        border: 1px solid $background-primary;
+        color: $background-primary;
+        font-size: 15px;
+        border-radius: 4px;
+        outline: none;
+        box-sizing: border-box;
+        cursor: pointer;
+        text-align: center;
+        transition: all 0.3s;
+
+        &:hover {
+          background: $background-primary;
+          color: $color-primary
+        }
+      }
+    }
+
+    .greeting {
+      margin-right: 1rem;
+    }
+  }
+}
