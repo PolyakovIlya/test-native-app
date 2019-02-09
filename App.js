@@ -24,7 +24,6 @@ export default class App extends Component {
           />
         );
       } else {
-          console.log('store')
         return (
             <Provider store={configureStore()}>
                 <View style={styles.container}>
@@ -45,7 +44,7 @@ export default class App extends Component {
         Font.loadAsync({
           // This is the font that we are using for our tab bar
           ...Icon.Ionicons.font,
-          // We include SpaceMono because we use it in Home.js free
+          // We include SpaceMono because we use it in Articles.js free
           // to remove this if you are not using it in your app
           'space-mono': require('./src/assets/fonts/SpaceMono-Regular.ttf'),
         }),

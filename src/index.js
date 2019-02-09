@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { createRootNavigator } from './router';
+import { createRootNavigator } from './navigation/AppNavigator';
 import { connect } from 'react-redux';
 import {createAppContainer} from 'react-navigation';
 
@@ -17,8 +17,6 @@ class App extends Component {
         let signedIn = false;
 
         if(user && user.token) signedIn = true;
-
-        console.log('kek', signedIn)
 
         const Layout = createAppContainer(createRootNavigator(signedIn));
         return <Layout />;

@@ -5,15 +5,9 @@ const login = (username, password) => {
     return api.post(`/users/login`, {user:{username, password}})
         .then(user => {
             if (user.token) {
-                AsyncStorage.setItem('user', JSON.stringify({
-                    username: user.username,
-                    isAdmin: user.isAdmin,
-                    email: user.email,
-                    token: user.token
-                }));
+                AsyncStorage.setItem('token', user.token);
+                return user;
             }
-
-            return user;
         })
 };
 

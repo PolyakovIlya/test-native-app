@@ -1,20 +1,22 @@
 import config from '../config/config';
 import { AsyncStorage } from 'react-native';
 
-const headers = () => {
+const headers = async () => {
     const h = new Headers();
     h.append('Content-Type', 'application/json');
 
-    if(AsyncStorage.getItem('user')) {
-        h.append('x-access-token', AsyncStorage.getItem('user').token);
+    const token = await AsyncStorage.getItem('token');
+
+    if(token) {
+        h.append('x-access-token', token);
     }
 
     return h;
 };
 
-const request = (method, path, body) => {
+const request = async (method, path, body) => {
     const url = `${config.apiUrl}${path}`;
-    const options = { method, headers: headers()};
+    const options = { method, headers: await headers()};
 
     if(body) {
         options.body = JSON.stringify(body);

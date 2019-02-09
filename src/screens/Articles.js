@@ -1,11 +1,24 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import {
+    Button,
+    Image,
+    Platform,
+    ScrollView,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View,
+} from 'react-native';
 import { connect } from 'react-redux';
-import { articleActions } from '../actions';
+import styled from 'styled-components';
 import ArticleBlock from '../components/ArticleBlock';
-import Pagination from '../components/Pagination';
-import Loader from '../components/Loader';
+import {articleActions} from '../actions';
 
 class Articles extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     componentDidMount() {
         this.props.fetchArticles();
     }
@@ -13,7 +26,7 @@ class Articles extends Component {
     renderArticles() {
         const { articles, isLoading } = this.props;
 
-        if(isLoading) return <Loader/>;
+        if(isLoading) return null;
 
         return (
             articles.map((article) => (
@@ -26,10 +39,9 @@ class Articles extends Component {
         const {pagination} = this.props;
 
         return (
-            <div className="container">
+            <Wrapper>
                 {this.renderArticles()}
-                <Pagination pagination={pagination}/>
-            </div>
+            </Wrapper>
         )
     }
 }
@@ -44,5 +56,12 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (dispatch) => ({
     fetchArticles: () => dispatch(articleActions.getArticles())
 });
+
+const Wrapper = styled.ScrollView`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2% 0;
+`;
 
 export default connect(mapStateToProps, mapDispatchToProps)(Articles);

@@ -1,10 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux';
-import { articleActions, suggestionActions } from '../actions';
-import Paragraph from '../components/Paragraph';
-import BackBtn from '../components/BackBtn';
-
-import './Article.scss';
+import { articleActions, suggestionActions } from '../actions/index';
 
 class Article extends Component {
     constructor(props) {
@@ -27,14 +23,7 @@ class Article extends Component {
 
         return (
             paragraphs.map((p, i) => {
-                return (
-                    <Paragraph
-                        handleSuggestionCreation={this.createSuggestion.bind(this)}
-                        key={i}
-                        articleId={this.props.match.params['id']}
-                        index={i}
-                        paragraph={p.paragraph} />
-                )
+
             })
         )
     }
@@ -50,7 +39,6 @@ class Article extends Component {
     render() {
         return (
             <>
-                <BackBtn/>
                 <div className="container">
                     {this.renderTitle()}
                     <div className="paragraphBlock">
