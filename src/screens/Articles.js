@@ -1,18 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
-    Button,
-    Image,
-    Platform,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+    ActivityIndicator
 } from 'react-native';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import ArticleBlock from '../components/ArticleBlock';
-import {articleActions} from '../actions';
+import { articleActions } from '../actions';
 
 class Articles extends Component {
     constructor(props) {
@@ -25,8 +18,9 @@ class Articles extends Component {
 
     renderArticles() {
         const { articles, isLoading } = this.props;
+        console.log('loading', isLoading)
 
-        if(isLoading) return null;
+        if(isLoading) return <ActivityIndicator size="small" color="#8053ca"/>;
 
         return (
             articles.map((article) => (

@@ -1,7 +1,8 @@
 import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
-import MainTabNavigator from './MainTabNavigator';
+import UserTabNavigator from './UserTabNavigator';
+import AdminTabNavigator from './AdminTabNavigator';
 import AuthNavigator from './AuthNavigator';
 
 // export default createAppContainer(createSwitchNavigator({
@@ -12,19 +13,20 @@ import AuthNavigator from './AuthNavigator';
 //
 // }));
 
-export const createRootNavigator = (signedIn) => {
+export const createRootNavigator = (signedIn, isAdmin) => {
     console.log('signedId', signedIn ? "SignedIn" : "SignedOut")
+    console.log('isAdmin', isAdmin)
     return createSwitchNavigator(
         {
             SignedIn: {
-                screen: MainTabNavigator
+                screen: !isAdmin ? UserTabNavigator : AdminTabNavigator
             },
             SignedOut: {
                 screen: AuthNavigator
             }
         },
         {
-            initialRouteName: signedIn ? "SignedIn" : "SignedOut"
+            initialRouteName: signedIn ? 'SignedIn' : 'SignedOut'
         }
     )
 }

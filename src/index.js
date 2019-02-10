@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { createRootNavigator } from './navigation/AppNavigator';
 import { connect } from 'react-redux';
-import {createAppContainer} from 'react-navigation';
+import { createAppContainer } from 'react-navigation';
 
 class App extends Component {
     constructor(props) {
@@ -18,7 +18,7 @@ class App extends Component {
 
         if(user && user.token) signedIn = true;
 
-        const Layout = createAppContainer(createRootNavigator(signedIn));
+        const Layout = createAppContainer(createRootNavigator(signedIn, user && user.isAdmin));
         return <Layout />;
     }
 }
